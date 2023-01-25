@@ -20,9 +20,49 @@ a.work-link {
 		background-position: 0% 50%;
 	}
 }
+/* dark color-scheme */
+body.dark,
+body.dark .master .container .inner-container,
+body.dark .master .container .inner-container main .main-content .content .content-body,
+body.dark .master .container .inner-container main .subject-toggle ul {
+    background: #222;
+    color: #ddd;
+}
+body.dark .master .container .inner-container header ul.contact-links a svg {
+    fill:#ccc;
+}
+body.dark .master .container .inner-container header ul.contact-links a svg:hover {
+    fill: #ddd;
+}
+body.dark .master .container::before,
+body.dark .master .container .inner-container header .header-img img::before,
+body.dark .master .container .inner-container main .main-content .content .content-body::before {
+    background: linear-gradient(45deg, #031634, #033649, #036564, #E8DDCB);
+}
+body.dark .master .container .inner-container main .subject-toggle::before {
+    background: linear-gradient(90deg, #031634, #033649, #036564, #E8DDCB);
+}
+/* light color scheme */
+body.light,
+body.light .master .container .inner-container,
+body.light .master .container .inner-container main .main-content .content .content-body,
+body.light .master .container .inner-container main .subject-toggle ul {
+    color: #444;
+    background: #ddd;
+}
+body.light .master .container .inner-container header ul.contact-links a svg {
+    fill:#444;
+}
+body.light .master .container::before,
+body.light .master .container .inner-container header .header-img img::before,
+body.light .master .container .inner-container main .main-content .content .content-body::before {
+    background: linear-gradient(45deg, #4D849F, #205467, #123641, #15302F, #162112);
+}
+body.light .master .container .inner-container main .subject-toggle::before {
+    background: linear-gradient(90deg, #4D849F, #205467, #123641, #15302F, #162112);
+}
 body {
     color: #ddd;
-    background: #222;
     font-family: 'Fira Sans', sans-serif;
     margin: 0;
 }
@@ -49,7 +89,6 @@ body {
 }
 .master .container .inner-container {
     padding: 25px;
-    background: #222;
     position: relative;
     margin: 2px;
     border-top-right-radius: 8px;
@@ -58,7 +97,6 @@ body {
 /* accent gradient */
 .master .container::before {
     content: " ";
-    background: linear-gradient(45deg, #031634, #033649, #036564, #E8DDCB);
     background-size: 150% 150% !important;
     animation: gradient 5s ease infinite;
     border-top-right-radius: 8px;
@@ -84,12 +122,14 @@ body {
     border-radius: 50%;
     position: relative;
 }
+.master .container .inner-container header .header-img:hover {
+    cursor: pointer;
+}
 .master .container .inner-container header .header-img img {
     width: 100%;
     height: 100%;
 }
 .master .container .inner-container header .header-img img::before {
-    background: linear-gradient(45deg, #031634, #033649, #036564, #E8DDCB);
     position: absolute;
     top: 1px;
     left: -2px;
@@ -116,6 +156,9 @@ body {
 .master .container .inner-container header ul.contact-links a svg {
     fill: #ccc;
     transition: all .1s ease-in-out;
+}
+.master .container .inner-container header ul.contact-links a:hover svg {
+    transform: scale(1.5);
 }
 /* main content */
 .master .container .inner-container main {
@@ -150,7 +193,6 @@ body {
     border-radius: 8px;
     margin: auto;
     position: relative;
-    background: #222;
     background-clip: padding-box;
     border: solid 5px transparent;
     left: -2px;
@@ -165,7 +207,6 @@ body {
     z-index: -1;
     margin: -2px 0px 0px -2px;
     border-radius: inherit;
-    background: linear-gradient(45deg, #031634, #033649, #036564, #E8DDCB);
     animation: gradient 5s ease infinite;
     width: 25%;
     height: 95%;
@@ -192,7 +233,6 @@ body {
 }
 .master .container .inner-container main .subject-toggle::before {
     content: " ";
-    background: linear-gradient(90deg, #031634, #033649, #036564, #E8DDCB);
     background-size: 150% 150% !important;
     animation: gradient 5s ease infinite;
     border-top-left-radius: 8px;
@@ -208,7 +248,6 @@ body {
     font-size: 18px;
     padding: 20px;
     margin: 0;
-    background: #222;
     z-index: 1;
     border-top-left-radius: 7px;
     flex-direction: column;

@@ -24,4 +24,7 @@ $(document).ready(() => {
             }
         });
     });
+    $('.master .container .inner-container header .header-img .headshot').on('click', function(){
+        $('body').toggleClass('light dark');
+    });
 });
