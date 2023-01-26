@@ -6,7 +6,7 @@
 .hide {
     display: none !important;
 }
-a.work-link {
+a {
     color: unset;
 }
 @keyframes gradient {
