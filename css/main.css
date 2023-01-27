@@ -34,11 +34,10 @@ body.dark .master .container .inner-container header ul.contact-links a svg {
 body.dark .master .container .inner-container header ul.contact-links a svg:hover {
     fill: #ddd;
 }
+/* dark color scheme */
 body.dark .master .container::before,
-body.dark .master .container .inner-container header .header-img img::before,
-body.dark .master .container .inner-container main .main-content .content .content-body::before {
-    background: linear-gradient(45deg, #031634, #033649, #036564, #E8DDCB);
-}
+body.dark .master .container .inner-container header .header-img::before,
+body.dark .master .container .inner-container main .main-content .content .content-body::before,
 body.dark .master .container .inner-container main .subject-toggle::before {
     background: linear-gradient(90deg, #031634, #033649, #036564, #E8DDCB);
 }
@@ -55,9 +54,7 @@ body.light .master .container .inner-container header ul.contact-links a svg {
 }
 body.light .master .container::before,
 body.light .master .container .inner-container header .header-img img::before,
-body.light .master .container .inner-container main .main-content .content .content-body::before {
-    background: linear-gradient(45deg, #4D849F, #205467, #123641, #15302F, #162112);
-}
+body.light .master .container .inner-container main .main-content .content .content-body::before,
 body.light .master .container .inner-container main .subject-toggle::before {
     background: linear-gradient(90deg, #4D849F, #205467, #123641, #15302F, #162112);
 }
@@ -117,7 +114,6 @@ body {
 .master .container .inner-container header .header-img {
     width: 75px;
     height: 75px;
-    /* background-image: url(../img/headshot_400x400.png); */
     background-size: 100% 100%;
     border-radius: 50%;
     position: relative;
@@ -128,6 +124,7 @@ body {
 .master .container .inner-container header .header-img img {
     width: 100%;
     height: 100%;
+    transition: all .3s ease-in-out;
 }
 .master .container .inner-container header .header-img img::before {
     position: absolute;
@@ -137,6 +134,18 @@ body {
     width: 75px;
     border-radius: 50%;
     z-index: -1;
+}
+.master .container .inner-container header .header-img img:hover {
+    transform: scale(1.2);
+    transition: all .3s ease-in-out;
+}
+body.dark .master .container .inner-container header .header-img img.headshot-night,
+body.light .master .container .inner-container header .header-img img.headshot-day {
+    display: block;
+}
+body.dark .master .container .inner-container header .header-img img.headshot-day,
+body.light .master .container .inner-container header .header-img img.headshot-night {
+    display: none;
 }
 .master .container .inner-container header ul.contact-links,
 .master .container .inner-container main .subject-toggle ul {
