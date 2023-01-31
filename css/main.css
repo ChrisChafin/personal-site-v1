@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 /* must do mobile-first */
-.show {
+/* .show {
     display: block;
 }
 .hide {
     display: none !important;
-}
+} */
 a {
     color: unset;
 }
@@ -23,10 +23,10 @@ a {
 /* dark color-scheme */
 body.dark,
 body.dark .master .container .inner-container,
-body.dark .master .container .inner-container main .main-content .content .content-body,
 body.dark .master .container .inner-container main .subject-toggle ul {
     background: #222;
     color: #ddd;
+    transition: all .2s ease-in-out;
 }
 body.dark .master .container .inner-container header ul.contact-links a svg {
     fill:#ccc;
@@ -37,24 +37,24 @@ body.dark .master .container .inner-container header ul.contact-links a svg:hove
 /* dark color scheme */
 body.dark .master .container::before,
 body.dark .master .container .inner-container header .header-img::before,
-body.dark .master .container .inner-container main .main-content .content .content-body::before,
+body.dark .master .container::after,
 body.dark .master .container .inner-container main .subject-toggle::before {
     background: linear-gradient(90deg, #031634, #033649, #036564, #E8DDCB);
 }
 /* light color scheme */
 body.light,
 body.light .master .container .inner-container,
-body.light .master .container .inner-container main .main-content .content .content-body,
 body.light .master .container .inner-container main .subject-toggle ul {
     color: #444;
     background: #ddd;
+    transition: all .2s ease-in-out;
 }
 body.light .master .container .inner-container header ul.contact-links a svg {
     fill:#444;
 }
 body.light .master .container::before,
 body.light .master .container .inner-container header .header-img img::before,
-body.light .master .container .inner-container main .main-content .content .content-body::before,
+body.light .master .container::after,
 body.light .master .container .inner-container main .subject-toggle::before {
     background: linear-gradient(90deg, #4D849F, #205467, #123641, #15302F, #162112);
 }
@@ -77,19 +77,10 @@ body {
 }
 .master .container {
     display: block;
-    /* justify-content: center;
-    align-items: flex-start; */
     max-width: 100vw;
     height: 100%;
     box-sizing: border-box;
     overflow: hidden;
-}
-.master .container .inner-container {
-    padding: 25px;
-    position: relative;
-    margin: 2px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
 }
 /* accent gradient */
 .master .container::before {
@@ -105,11 +96,33 @@ body {
     width: 90px;
     height: 90px;
 }
+.master .container::after {
+    content: " ";
+    background-size: 150% 150% !important;
+    animation: gradient 5s ease infinite;
+    border-top-left-radius: 8px;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 75vh;
+}
+.master .container .inner-container {
+    padding: 25px;
+    position: relative;
+    margin: 2px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
 /* header */
 .master .container .inner-container header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 2;
 }
 .master .container .inner-container header .header-img {
     width: 75px;
@@ -184,7 +197,6 @@ body.light .master .container .inner-container header .header-img img.headshot-n
     line-height: 1.3;
 }
 .master .container .inner-container main .main-content {
-    transition: all .2s linear;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -194,35 +206,41 @@ body.light .master .container .inner-container header .header-img img.headshot-n
     width: 100%;
 }
 .master .container .inner-container main .main-content .content {
-    transition: all .2s linear;
     transform: scaleX(1);
     flex-basis: 66%;
+    height: 100vh;
+    position: relative;
 }
 .master .container .inner-container main .main-content .content .content-body {
-    border-radius: 8px;
     margin: auto;
     position: relative;
     background-clip: padding-box;
     border: solid 5px transparent;
     left: -2px;
+    padding-left: 10px;
 }
-.master .container .inner-container main .main-content .content .content-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0px;
-    z-index: -1;
-    margin: -2px 0px 0px -2px;
-    border-radius: inherit;
-    animation: gradient 5s ease infinite;
-    width: 25%;
-    height: 95%;
-    background-size: 200% 200%;
+.master .container .inner-container main .main-content .content .content-body.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 !important;
+    -webkit-transition: max-height 1s linear, opacity 0.5s linear !important;
+       -moz-transition: max-height 1s linear, opacity 0.5s linear !important;
+        -ms-transition: max-height 1s linear, opacity 0.5s linear !important;
+         -o-transition: max-height 1s linear, opacity 0.5s linear !important;
+            transition: max-height 1s linear, opacity 0.5s linear !important;
 }
-.master .container .inner-container main .main-content .content .content-body div{
-    margin-left: 30px;
+
+.master .container .inner-container main .main-content .content .content-body.open {
+     max-height: 1000px;
+     opacity: 1;
+     -webkit-transition: max-height 1s linear, opacity 0.5s linear !important;
+        -moz-transition: max-height 1s linear, opacity 0.5s linear !important;
+         -ms-transition: max-height 1s linear, opacity 0.5s linear !important;
+          -o-transition: max-height 1s linear, opacity 0.5s linear !important;
+             transition: max-height 1s linear, opacity 0.5s linear !important;
+}
+.master .container .inner-container main .main-content .content .content-body div {
+    padding-left: 20px;
     font-size: .9em;
     line-height: 1.6;
     position: relative;
