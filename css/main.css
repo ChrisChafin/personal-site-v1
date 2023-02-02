@@ -290,6 +290,17 @@ body.light .master .container .inner-container header .header-img img.headshot-n
     width: calc(100% + 6px);
     transition: width .5s ease-in-out;
 }
+.master .container .inner-container footer {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 30px;
+}
+.master .container .inner-container footer p {
+    bottom: 0;
+    position: absolute;
+    margin: 0;
+}
 /* tablet */
 @media screen and (min-width: 500px){
     .master {
@@ -314,7 +325,7 @@ body.light .master .container .inner-container header .header-img img.headshot-n
         height: 100%;
     }
     .master .container .inner-container {
-        /* height: 100vh; */
+        row-gap: 30px;
         padding: 25px 50px;
     }    
     .master .container .inner-container main {
@@ -343,8 +354,5 @@ body.light .master .container .inner-container header .header-img img.headshot-n
     }
     .master .container .inner-container main .subject-toggle ul {
         padding: 25px 40px;
-    }
-    .master .container .inner-container footer {
-        padding: 25px 50px;
     }
 }
