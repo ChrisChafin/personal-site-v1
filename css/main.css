@@ -38,7 +38,8 @@ body.dark .master .container .inner-container header ul.contact-links a svg:hove
 body.dark .master .container::before,
 body.dark .master .container .inner-container header .header-img::before,
 body.dark .master .container::after,
-body.dark .master .container .inner-container main .subject-toggle::before {
+body.dark .master .container .inner-container main .subject-toggle::before,
+body.dark .master .container .inner-container main .subject-toggle ul li:hover span::after {
     background: linear-gradient(90deg, #031634, #033649, #036564, #E8DDCB);
 }
 /* light color scheme */
@@ -55,7 +56,8 @@ body.light .master .container .inner-container header ul.contact-links a svg {
 body.light .master .container::before,
 body.light .master .container .inner-container header .header-img img::before,
 body.light .master .container::after,
-body.light .master .container .inner-container main .subject-toggle::before {
+body.light .master .container .inner-container main .subject-toggle::before,
+body.light .master .container .inner-container main .subject-toggle ul li:hover span::after {
     background: linear-gradient(90deg, #4D849F, #205467, #123641, #15302F, #162112);
 }
 body {
@@ -219,26 +221,6 @@ body.light .master .container .inner-container header .header-img img.headshot-n
     left: -2px;
     padding-left: 10px;
 }
-.master .container .inner-container main .main-content .content .content-body.hidden {
-    max-height: 0;
-    opacity: 0;
-    padding: 0 !important;
-    -webkit-transition: max-height 1s linear, opacity 0.5s linear !important;
-       -moz-transition: max-height 1s linear, opacity 0.5s linear !important;
-        -ms-transition: max-height 1s linear, opacity 0.5s linear !important;
-         -o-transition: max-height 1s linear, opacity 0.5s linear !important;
-            transition: max-height 1s linear, opacity 0.5s linear !important;
-}
-
-.master .container .inner-container main .main-content .content .content-body.open {
-     max-height: 1000px;
-     opacity: 1;
-     -webkit-transition: max-height 1s linear, opacity 0.5s linear !important;
-        -moz-transition: max-height 1s linear, opacity 0.5s linear !important;
-         -ms-transition: max-height 1s linear, opacity 0.5s linear !important;
-          -o-transition: max-height 1s linear, opacity 0.5s linear !important;
-             transition: max-height 1s linear, opacity 0.5s linear !important;
-}
 .master .container .inner-container main .main-content .content .content-body div {
     padding-left: 20px;
     font-size: .9em;
@@ -292,15 +274,77 @@ body.light .master .container .inner-container header .header-img img.headshot-n
 .master .container .inner-container main .subject-toggle ul li:hover {
     cursor: pointer;
 }
+.master .container .inner-container main .subject-toggle ul li:hover span {
+    position: relative;
+}
+.master .container .inner-container main .subject-toggle ul li span::after {
+    content: '';
+    height: 2px;
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
+    width: 0;
+    transition: width .5s ease-in-out;
+}
+.master .container .inner-container main .subject-toggle ul li:hover span::after {
+    width: calc(100% + 6px);
+    transition: width .5s ease-in-out;
+}
 /* tablet */
 @media screen and (min-width: 500px){
-    .master .container .inner-container {
-
+    .master {
+        margin: 50px 50px 0 50px;
     }
+    .master .container::after {
+        height: 100%;
+    }
+    .master .container .inner-container {
+        padding: 50px;
+    }    
 }
 /* desktop */
 @media screen and (min-width: 900px){
     .master {
-        position: fixed;
+        margin: 50px;
+    }
+    .master .container {
+        overflow: scroll;
+    }
+    .master .container::after {
+        height: 100%;
+    }
+    .master .container .inner-container {
+        /* height: 100vh; */
+        padding: 25px 50px;
+    }    
+    .master .container .inner-container main {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 50px;
+        column-gap: 100px;
+    }
+    .master .container .inner-container main .main-content {
+        flex-basis: 60%;
+    }
+    .master .container .inner-container main .main-content .content {
+        flex-basis: 100%;
+    }
+    .master .container .inner-container main .main-content .content .content-body {
+        border: none;
+        left: 0;
+        padding: 0;
+    }
+    .master .container .inner-container main .spacer {
+        display: none!important;
+    }
+    .master .container .inner-container main .subject-toggle {
+        flex-basis: 40%;
+    }
+    .master .container .inner-container main .subject-toggle ul {
+        padding: 25px 40px;
+    }
+    .master .container .inner-container footer {
+        padding: 25px 50px;
     }
 }
