@@ -13,7 +13,7 @@ const contentText = {
             <p class="lead"><em>Languages</em> </p>
             <p><small>Javascript (ES6)</small><small>Typescript</small><small>CSS/SCSS/LESS</small><small>Java</small><small>Python</small></p>
                 
-            <p class="lead"><em>Libraies &amp; Frameworks</em></p>
+            <p class="lead"><em>Libraries &amp; Frameworks</em></p>
             <p><small>Angular</small><small>ReactJS</small><small>Salesforce (SFRA + SFCC)</small><small>Node.JS</small><small>VueJS</small></p>
         
             <p class="lead"><em>Tools</em></p>
