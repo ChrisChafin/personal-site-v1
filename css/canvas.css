@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+html {
+    height: 100vh;
+}  
+body {
+    font-family: 'Fira Sans', sans-serif;
+    height: 350vh;
+    /* have to match bg color to color of image */
+    background: #000;
+    color: #ddd;
+    text-shadow: 4px 2px #000;
+    position: relative;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+a {
+    position: relative;
+    color: #ddd !important;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+}
+a:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+h3 a::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+canvas {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100vw;
+    max-height: 100vh;
+}
+a.back-btn {
+    position: fixed;
+    left: 5%;
+    top: 5%;
+    border: 1px solid #ddd;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    z-index: 1;
+    transition: all .2s ease-in-out;
+}
+a.back-btn:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+a.back-btn i {
+    color: #ddd;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+div.text {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.35);
+}
+div.text h3 {
+    padding: 0 20%;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    background: #000;
+    width: 100%;
+}
+footer p {
+    padding: 0 5%;
+}
+@media screen and (min-width: 900px) {
+    a.back-btn {
+        height: 30px;
+        width: 30px;
+    }    
+    a.back-btn i {
+        top: 25%;
+    }
+    canvas {
+        height: auto;
+        width: 100%;
+        z-index: 0;
+    }
+    div.text h3 {
+        padding: 0 35%;
+    }
+}
