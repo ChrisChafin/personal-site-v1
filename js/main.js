@@ -40,6 +40,7 @@ const contentText = {
             <p class="lead"><a class="work-link" href="https://www.kendrascott.com" target="_blank">Kendra Scott</a> - I was the only front-end developer working on the eCommerce team with Kendra Scott. I worked cross-functionally to support site content, email marketing and UX A/B testing.</p>
             <p class="lead"><a class="work-link" href="/canvas/canvas.html" target="_blank">Apple Product Page Scrolling Animations</a> - Ever wonder how apple does those cool scrolling backgrounds? This will show you!</p>
             <p class="lead"><a class="work-link" href="https://www.fossil.com/us/en.html" target="_blank">Fossil.com</a> - I was a part of the team that worked on fossil.com and other sites (<a href="https://www.skagen-japan.com/" target="_blank">Skagen-Japan</a> and <a href="https://www.zodiacwatches.com/" target="_blank">Zodiac</a> as examples)</p>
+            <p class="lead"><a class="work-link" href="/intersect/intersect.html" target="_blank">Intersection Observer Visualization</a> - Here is a cool little example of how you can create infinite scrolling for your storefront using intersection observers in Javascript</p>
             <p class="lead"><a class="work-link" href="https://www.transamerica.com/individual/" target="_blank">New Transamerica.com</a> - The new redesigned TA.com that I was a part of creating</p>
             `
     }
